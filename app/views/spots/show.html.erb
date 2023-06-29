@@ -1,0 +1,120 @@
+<main class="main">
+  <div class="inner">
+    <div class="spot__wrapper">
+      <h2 class="page-heading">
+         <%= link_to "#{@spot.user.nickname}さんの投稿の詳細", user_path(@spot.user), class: :spot__user %>
+      </h2>
+
+<div class="container">
+ <div class="image_card"><%= link_to image_tag(@spot.image, class: :card__img ), spot_path(@spot) %></div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">投稿者</th>
+          <td class="detail-value"><%= @spot.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">ジャンル</th>
+          <td class="detail-value"><%= @spot.genre.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">作品名</th>
+          <td class="detail-value"><%= @spot.title %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">郵便番号</th>
+          <td class="detail-value"><%= @spot.postal_code %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">都道府県</th>
+          <td class="detail-value"><%= @spot.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">市区町村</th>
+          <td class="detail-value"><%= @spot.city %></td>
+        </tr>
+        <th class="detail-item">住所</th>
+          <td class="detail-value"><%= @spot.addresses %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">コメント</th>
+          <td class="detail-value"><%= @spot.catch_copy %></td>
+        </tr>
+
+        <tr>
+           <th class="detail-item">地図</th>
+           <td class="detail-value">
+        <div id="map" style="height: 400px;"></div>
+           </td>
+        </tr>
+
+      </tbody>
+    </table>
+</div>
+
+      <% if current_user == @spot.user%>
+        <div class="editer">
+          <%= link_to "投稿を編集", edit_spot_path(@spot), class:"edit-btn" %>
+          <%= link_to "投稿を削除", spot_path(@spot), method: :delete, class:"edit-btn" %>
+        </div>
+      <% end %>
+
+     <div class="spot__comments">
+  <% if user_signed_in? %>
+    <%= form_with model: [@spot, @comment], local: true do |f| %>
+      <div class="field">
+        <%= f.label :content, "コメント" %><br />
+        <%= f.text_field :content, id: "comment_content" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "送信する", class: :form__btn %>
+      </div>
+    <% end %>
+  <% end %>
+       <ul class="comments_lists">
+        <% @comments.each do |comment| %>
+         <li class="comments_list">
+           <%= comment.content %>
+           <%= link_to "（#{comment.user.nickname}）", user_path(comment.user), class: :comment_user %>
+         </li>
+       <% end %>
+     </ul>
+   </div>
+  </div>
+ </div>
+</main>
+
+
+<script>
+  function initMap() {
+    var city = '<%= @spot.city %>';
+    var address = '<%= @spot.addresses %>';
+
+    var fullAddress = city + ' ' + address;
+
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address': fullAddress }, function(results, status) {
+      if (status === 'OK') {
+        var latitude = results[0].geometry.location.lat();
+        var longitude = results[0].geometry.location.lng();
+
+        var mapOptions = {
+          center: { lat: latitude, lng: longitude },
+          zoom: 15
+        };
+
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        var marker = new google.maps.Marker({
+          position: { lat: latitude, lng: longitude },
+          map: map
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+</script>
+
+<%# <script async defer src=ENV["MAP_API_KEY"]></script> %>
+<script async defer src="<%= ENV["MAP_API_KEY"] %>"></script>

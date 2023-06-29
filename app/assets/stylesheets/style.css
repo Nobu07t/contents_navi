@@ -1,0 +1,337 @@
+/* リセットCSS */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+ul,
+li,
+h1,
+h2,
+p,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN W3", sans-serif;
+  color: #3b4043;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: #3b4043;
+}
+
+/* ヘッダー */
+
+.header {
+  background-color: #f1f8fe;
+  padding: 20px 70px;
+}
+
+.inner {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 25px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.12em;
+}
+
+/* ユーザー管理機能関連のボタン */
+.nav__right{
+  display: flex;
+  align-items: center;
+}
+
+.nav__btn{
+  padding: 0.4em 1.6em;
+  margin: 0px 5px;
+  color: #87CEFA;
+  text-decoration: none;
+  user-select: none;
+  border: 1px #87CEFA solid;
+  border-radius: 3px;
+  transition: 0.4s ease;
+ 
+}
+
+.nav__btn:hover{
+  color: #fff;
+  background: #87CEFA;
+  transition: 0.4s ease;
+}
+
+.lists{
+  display: flex;
+  justify-content: center;
+}
+
+.lists>*{
+ width: 10%;
+ height: 45px;
+ /* font-weight: bold; */
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: white;
+ font-size: 110%;
+}
+
+.lists>*:hover{
+  transform: scale(1.1);
+  border-radius:5px;	
+  transition: 0.4s ease;
+  
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+
+.genre_tag1{
+ background-color: #626262;
+}
+
+.genre_tag2{
+  background-color: #FA4648;
+ }
+
+ .genre_tag3{
+  background-color: #0079c2;
+ }
+
+ .genre_tag4{
+  background-color: #f2cf01;
+ }
+
+ .genre_tag5{
+  background-color: #19CB8B;
+ }
+
+ .genre_tag6{
+  background-color: #A94ED9;
+ }
+
+ .genre_tag7{
+  background-color: #ff84ff;
+ }
+
+ .genre_tag8{
+  background-color: #F99100;
+ }
+
+ .genre_tag9{
+  background-color: #00a7db;
+ }
+
+ .genre_tag10{
+  background-color: #9c5e31;
+ }
+
+ 
+
+
+/* フッター */
+
+.copyright {
+  margin: 30px auto;
+  padding: 10px;
+  color: #D8D8D8;
+  text-align: center;
+}
+
+/* メイン */
+
+.main {
+
+}
+
+.genre_mark2 {
+  color: #FA4648;
+}
+
+.genre_mark3 {
+  color: #0079c2;
+}
+
+.genre_mark4 {
+  color: #f2cf01;
+}
+
+.genre_mark5 {
+  color: #19CB8B;
+}
+
+.genre_mark6 {
+  color: #A94ED9;
+}
+
+.genre_mark7 {
+  color: #ff84ff;
+}
+
+.genre_mark8 {
+  color: #F99100;
+}
+
+.genre_mark9 {
+  color: #00a7db;
+}
+
+.genre_mark10 {
+  color: #9c5e31;
+}
+
+
+
+.container {
+  background-color: #f1f3f4;
+  margin: 50px 60px 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user_card {
+  padding: 12px;
+  font-size: large;
+  display: flex;
+}
+
+.image_card {
+  display: flex;
+  justify-content: space-around;
+  background-color:#D3D4D5;
+}
+
+.card__img {
+  width: auto;
+  height: 500px;
+}
+
+.spot_card {
+  padding: 12px;
+  font-size: large;
+}
+
+.communication{
+  
+}
+
+.indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* 詳細ページ */
+
+.detail-item {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #D3D4D5;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #D3D4D5;
+  font-size: 14px;
+
+}
+
+/* 編集画面 */
+.editer{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0 35px;
+}
+
+.edit-btn{
+  margin: 25px;
+  width: 50%;
+  background-color: #b4b5b5;
+  border: 1px solid #b4b5b5;
+  color: #fff;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.edit-btn:hover{
+  background-color: #87CEFA;
+  border: 1px solid #87CEFA;
+  transition: 0.4s ease;
+}
+
+/* コメント */
+.spot__comments {
+  margin-top: 20px;
+}
+
+.field {
+  margin: 0 60px 10px;
+}
+
+.actions {
+  margin-top: 10px;
+}
+
+.form__btn {
+  padding: 5px 10px;
+  background-color: #b4b5b5;
+  border: 1px solid #b4b5b5;
+  text-decoration: none;
+  color: #fff;
+}
+
+.form__btn:hover {
+  background-color: #87CEFA;
+  border: 1px solid #87CEFA;
+  color: #fff;
+  transition: 0.4s ease;
+}
+
+.comments_lists {
+  list-style-type: none;
+  margin: 20px 61px 0;
+  padding-left: 0;
+}
+
+.comments_list {
+  margin-bottom: 10px;
+}
+
+.comment_user {
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+}
+

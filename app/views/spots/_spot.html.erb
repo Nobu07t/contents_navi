@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="user_card">
+
+  <% if spot.genre.id == 2 %>
+  <div class="genre_mark2" spot-genre-id="2">●&nbsp</div>
+  <% elsif spot.genre.id == 3 %>
+  <div class="genre_mark3" spot-genre-id="3">●&nbsp</div>
+  <% elsif spot.genre.id == 4 %>
+  <div class="genre_mark4" spot-genre-id="4">●&nbsp</div>
+  <% elsif spot.genre.id == 5 %>
+  <div class="genre_mark5" spot-genre-id="5">●&nbsp</div>
+  <% elsif spot.genre.id == 6 %>
+  <div class="genre_mark6" spot-genre-id="6">●&nbsp</div>
+  <% elsif spot.genre.id == 7 %>
+  <div class="genre_mark7" spot-genre-id="7">●&nbsp</div>
+  <% elsif spot.genre.id == 8 %>
+  <div class="genre_mark8" spot-genre-id="8">●&nbsp</div>
+  <% elsif spot.genre.id == 9 %>
+  <div class="genre_mark9" spot-genre-id="9">●&nbsp</div>
+  <% elsif spot.genre.id == 10 %>
+  <div class="genre_mark10" spot-genre-id="10">●&nbsp</div>
+  <% else %>
+  <% end %>
+
+
+  <%= link_to "#{spot.user.nickname}の投稿", user_path(spot.user), class: :spot__user %>
+  </div>
+
+  <div class="image_card" ><%= link_to image_tag(spot.image, class: :card__img ), spot_path(spot) %></div>
+
+
+  <div class="spot_card">
+   <%= link_to "📍 #{spot.prefecture.name}", spot_path(spot), class: :card__prefecture %>
+   <%= link_to spot.city,  spot_path(spot) %>
+    <%= "（#{spot.genre.name}）"%>
+   </div>
+   <%# <div class="communication">♡</div> %>
+</div>

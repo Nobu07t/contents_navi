@@ -1,0 +1,54 @@
+<div class="main">
+<%= form_with model: @spot, local: true do |f|%>
+
+<div class="form-group">
+    <%= f.label :image, "聖地の画像", class:"form-text" %><span class="indispensable">必須</span><br />
+    <%= f.file_field :image, id:"spot_image" %>
+  </div>
+
+<div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ジャンル<span class="indispensable">必須</span></label>
+    </div>
+      <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"genre"}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title, "聖地が登場する作品名", class:"form-text" %><span class="indispensable">必須</span><br />
+    <%= f.text_field :title, id:"spot_title" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :postal_code, "郵便番号", class:"form-text"%><br />
+    <%= f.text_field :postal_code, id:"spot_postal_code" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">都道府県<span class="indispensable">必須</span></label>
+    </div>
+      <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :city, "市区町村", class:"form-text" %><span class="indispensable">必須</span><br />
+    <%= f.text_field :city, id:"spot_city" %>
+  </div>
+
+   <div class="form-group">
+    <%= f.label :addresses, "住所", class:"form-text" %><br />
+    <%= f.text_field :addresses, id:"spot_addresses" %>
+  </div>
+
+<div class="form-group">
+    <%= f.label :catch_copy, "投稿者のコメント", class:"form-text" %><span class="indispensable">必須</span><br />
+    <%= f.text_field :catch_copy, id:"spot_catch_copy" %>
+  </div>
+
+ <div class="form-group">
+  <div class="actions">
+    <%= f.submit "投稿する",class:"color-btn" %>
+  </div>
+  </div>
+<% end %>
+</div>

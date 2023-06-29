@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>聖地Navi</title>
+    <%= csrf_meta_tags %> 
+    <%= csp_meta_tag %> 
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <header class="header">
+    <div class="inner">
+     <div class="nav">
+        <h1 class="logo"><a href="/">聖地Navi</a></h1>
+
+     <% if user_signed_in? %>
+      <div class="greeting">
+       <%= "こんにちは、#{current_user.nickname}さん" %><br>マイページは
+       <%= link_to "こちら", user_path(current_user), class: :greeting__link%>です！
+      </div>
+     <% end %>
+
+        <% if user_signed_in? %>
+          <div class="nav__right">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav__btn" %>
+            <%= link_to "新規投稿", new_spot_path, class: "nav__btn" %>
+          </div>
+        <% else %>
+          <div class="nav__right">
+            <%= link_to "ログイン",  new_user_session_path, class: "nav__btn" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "nav__btn" %>
+          </div>
+        <% end %>
+      </div>
+     </div>
+    </header>
+
+     <% if current_page?(root_path) %>
+      <ul class="lists">
+         <%= link_to "すべて", root_path(genre_id:0), class:"genre_tag1"%>
+         <%= link_to "漫画", root_path(genre_id:2), class:"genre_tag2"%>
+         <%= link_to "アニメ", root_path(genre_id:3), class:"genre_tag3"%>
+         <%= link_to "人物", root_path(genre_id:4), class:"genre_tag4"%>
+         <%= link_to "映画", root_path(genre_id:5), class:"genre_tag5"%>
+         <%= link_to "ドラマ", root_path(genre_id:6), class:"genre_tag6"%>
+         <%= link_to "音楽", root_path(genre_id:7), class:"genre_tag7"%>
+         <%= link_to "文学", root_path(genre_id:8), class:"genre_tag8"%>
+         <%= link_to "ゲーム", root_path(genre_id:9), class:"genre_tag9"%>
+         <%= link_to "歴史", root_path(genre_id:10), class:"genre_tag10"%>
+      </ul>
+     <% else %>
+     <% end %>
+
+    <%= yield %>
+
+    <footer class="footer">
+      <p class="copyright">Copyright © 聖地Navi All rights reserved.</p>
+    </footer>
+  </body>
+</html>
+
+
+
+

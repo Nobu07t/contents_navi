@@ -1,0 +1,25 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+
+      <table class="table">
+        <tbody>
+          <%# <tr> %>
+            <%# <th class="table__col1">ニックネーム</th> %>
+            <%# <td class="table__col2"><%= @user.nickname %></td>
+          <%# </tr> %>
+          <%# <tr>
+            <th class="table__col1">出身地</th>
+            <td class="table__col2"><%= @user.prefecture.name%></td>
+          <%# </tr> %> 
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "#{@user.nickname}さんの投稿一覧"%>
+      </h2>
+      <div class="user__card">
+        <%= render partial: 'spots/spot', collection: @user.spots %>
+      </div>
+    </div>
+  </div>
+</div>
