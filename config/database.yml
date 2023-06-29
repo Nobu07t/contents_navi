@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
+  adapter: mysql2
   database: contents_navi_production
-  username: contents_navi
-  password: <%= ENV['CONTENTS_NAVI_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
