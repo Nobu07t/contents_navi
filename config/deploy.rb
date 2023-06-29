@@ -5,7 +5,7 @@ lock '3.17.3'
 set :application, 'contents_navi'
 
 # どのリポジトリからアプリをpullするかを指定
-set :repo_url,  'git@github.com:Nobu07/contents_navi.git'
+set :repo_url,  'git@github.com:Nobu07t/contents_navi.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
