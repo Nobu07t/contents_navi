@@ -67,3 +67,9 @@ gem 'factory_bot_rails'
 
 gem 'gmaps4rails'
 gem 'geocoder'
+
+gem "aws-sdk-s3", require: false
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end

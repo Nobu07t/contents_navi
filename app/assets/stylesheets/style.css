@@ -39,6 +39,7 @@ a {
 .header {
   background-color: #f1f8fe;
   padding: 20px 70px;
+  width: 100%;
 }
 
 .inner {
@@ -74,7 +75,6 @@ a {
   border: 1px #87CEFA solid;
   border-radius: 3px;
   transition: 0.4s ease;
- 
 }
 
 .nav__btn:hover{
@@ -91,7 +91,6 @@ a {
 .lists>*{
  width: 10%;
  height: 45px;
- /* font-weight: bold; */
  display: flex;
  justify-content: center;
  align-items: center;
@@ -103,7 +102,6 @@ a {
   transform: scale(1.1);
   border-radius:5px;	
   transition: 0.4s ease;
-  
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
 }
 
@@ -209,6 +207,10 @@ a {
   margin: 50px 60px 60px;
   display: flex;
   flex-direction: column;
+  border-top: 5px solid #aaa;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  width: 904px;
+  height: auto;
 }
 
 .user_card {
